@@ -4,7 +4,7 @@ const createActivitiesHandler = async (req, res) => {
     const { name, difficulty, duration, season, countries } = req.body;
     try {
         const response = await createActivities(name, difficulty, duration, season, countries);
-        if (!name || !difficulty || !duration || !season) {
+        if (!name || !difficulty || !duration || !season || !countries) {
             throw new Error("Please complete all fields")
         }
         return res.status(200).json(response);

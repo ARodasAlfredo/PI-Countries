@@ -5,6 +5,7 @@ const initialState = {
     allCountries: [],
     countryDetails: [],
     activities: [],
+    allActivities: [],
     order: "a-z",
     filter: "all",
     currentPage: 1,
@@ -130,12 +131,13 @@ const countriesSlice = createSlice({
             state.countries = state.allCountries.filter(country => country.name.toLowerCase().includes(action.payload.toLowerCase()));
         },
         postActivity: (state, action) => {
-            
+            state.activities.push(action.payload);
+            state.allActivities.push(action.payload);
         }
     }
 });
 
-export const { setCountries, setFilter, setOrder, setCurrentPage, setCountriesPerPage, getCountriesByName } = countriesSlice.actions;
+export const { setCountries, setFilter, setOrder, setCurrentPage, setCountriesPerPage, getCountriesByName, postActivity } = countriesSlice.actions;
 export default countriesSlice.reducer;
 
 

@@ -11,7 +11,7 @@ const createActivities = async (name, difficulty, duration, season, countries) =
         await activity.addCountries(countries);
         return activity;
     } catch (error) {
-        return null;
+        return error;
     }
 }
 

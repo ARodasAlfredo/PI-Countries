@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import './Landing.css';
 
 const Landing = () => {
     const navigate = useNavigate();
@@ -7,7 +8,7 @@ const Landing = () => {
     }
     return (
         <>
-            <div>
+            <div className="background">
                 <button onClick={handleClick}> Home </button>
             </div>
         </>

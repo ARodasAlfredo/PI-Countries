@@ -6,7 +6,8 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { setCountries } from './redux/countriesSlice';
-import NavBar from './components/navbar/NavBar'
+import NavBar from './components/navbar/NavBar';
+import CreateActivity from './components/create-activity/Create';
 import './App.css'
 
 
@@ -32,7 +33,7 @@ function App() {
           <Route path="/" element={<Landing/>}/>
           <Route path="/home" element={<Home/>}/>
           <Route path="/detail/:id" element={<Detail/>}/>
-          <Route path="/create"/>
+          <Route path="/create" element={<CreateActivity/>}/>
         </Routes>
       </div>
     </>

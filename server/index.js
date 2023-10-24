@@ -3,7 +3,7 @@ const server = require("./src/server");
 const { conn, Country } = require('./src/db.js');
 const PORT = 3001;
 
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
 server.listen(PORT, async () => {
   const allCountries = await Country.findAll();
   if (allCountries.length < 1) {
@@ -11,7 +11,7 @@ server.listen(PORT, async () => {
     const countries = data.map((country) => {
       return {
         id: country.cca3,
-        name: country.name?.official,
+        name: country.name?.common,
         flag: country.flags?.png,
         continent: country.continents[0],
         capital: country.capital ? country.capital[0] : "no capital",
