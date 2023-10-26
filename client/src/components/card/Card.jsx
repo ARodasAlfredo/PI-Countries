@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
+import './Card.css';
 
 const Card = ({id, flag, continent, name}) => {
  
     return (
-       <div> 
+       <div className="card-container"> 
          <Link to={`/detail/${id}`}>
-            <img src={flag} alt="flag"/> 
+            <img className="card-img" src={flag} alt="flag"/> 
          </Link>
-            <h3>{name}</h3>
-            <h4>{continent}</h4>
+            <h3 className="name">{name}</h3>
+            <p>{continent}</p>
        </div>
     );
  }

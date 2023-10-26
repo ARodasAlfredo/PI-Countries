@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { setFilter, setOrder, setCurrentPage } from "../../redux/countriesSlice";
 import { useDispatch } from "react-redux";
 import Card from "../card/Card";
+import './Home.css'
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -82,6 +83,7 @@ const Home = () => {
                 >
                     {">>"}
                 </button>
+                <div className="cards-display">
                 {countries.slice(startIndex, endIndex).map((country, index) => {
                     return (
                         <Card 
@@ -93,6 +95,7 @@ const Home = () => {
                     />
                     )
                 })}
+                </div>
             </div>
         </div>
     )

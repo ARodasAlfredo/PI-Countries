@@ -1,0 +1,16 @@
+.navBar-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 70px;
+    align-items: center;
+}
+
+.create-btn{
+    background-color: transparent;
+    padding: 5.5px;
+    border: 2px solid #FFFCF3;
+    border-radius: 8px;
+    width: 225px;
+    color: #FFFCF3;
+}

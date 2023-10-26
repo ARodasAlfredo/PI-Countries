@@ -1,8 +1,97 @@
+
 .background{
     background: #242424;
+    background-image: url("https://wallpapers.com/images/hd/high-resolution-world-map-silver-country-outlines-isefibdgcuhgz90y.jpg");
+    background-size: cover;
+    background-position: center;
     height: 100% !important;
     width: 100% !important;
     position: absolute;
     left: 0px;
     top: 0px;
 }
+
+.background button {
+    position: absolute;
+    right: 28.5%;
+    bottom: 25%;
+    font-size: 1em;
+    padding: 8px 16px;
+    background-color: #000;
+    border: 2px solid #fff;
+    border-radius: 20px; /* added border-radius property */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .background button:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    transition: all 0.3s ease-in-out;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  
+  .background button:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    transition: all 0.3s ease-in-out;
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+  
+  .background button:hover:before {
+    transform: scaleY(1);
+  }
+  
+  .background button:hover:after {
+    transform: scaleY(1);
+  }
+
+  .background button:hover {
+    background-color: #fff;
+    border-color: #000;
+    border-radius: 20px; 
+  }
+  
+  .background button:hover .default-text {
+    display: none;
+  }
+  
+  .background button:hover .hover-text {
+    display: block;
+    color: #000;
+    z-index: 1;
+  }
+  
+  .background button .hover-text {
+    display: none;
+    color:#000;
+  }
+  
+  .background button .default-text {
+    color: #fff;
+  }
+
+  .background button:active {
+    transform: translateY(2px) scale(0.95);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+    transition: all 0.1s ease-in-out;
+  }

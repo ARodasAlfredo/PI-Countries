@@ -1,0 +1,26 @@
+.card-container{
+    background-color: transparent;
+    border: 2px solid #fffcf3;
+    border-radius: 15px;
+    width: 175px;
+    height: 175px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fffcf3;
+    font-family: 'Play', sans-serif;
+    text-align: center;
+    padding: 10px;
+}
+
+.card-container:hover{
+    height: 190px;
+}
+
+.card-img{
+    width: 95px;
+    height: 60px;
+    border-radius: 10px;
+}
+
