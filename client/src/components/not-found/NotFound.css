@@ -1,0 +1,43 @@
+.overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #fffcf3;
+    z-index: 1000000000;
+    top: 0;
+    left: 0;
+}
+
+.plane{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.text{
+    font-family: "Play", sans-serif;
+    font-size: 10rem;
+    position: absolute;
+    left: 40%;
+}
+
+.home-btn{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    border: 2px solid #000;
+    color: #fffcf3;;
+    font-family: "Play", sans-serif;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.home-btn:hover{
+    background-color: #fffcf3;
+    color: #000;
+}

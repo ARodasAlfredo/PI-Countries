@@ -53,8 +53,8 @@ const countriesSlice = createSlice({
             else if (action.payload === "countries without activities") {
                 state.countries = state.allCountries.filter(country => country.activities.length === 0);
             }
-            else if (action.payload === state.countries.find(country => country.activities.includes(action.payload))) {
-                state.countries = state.allCountries.filter(country => country.activities.includes(action.payload));
+            else if (action.payload.includes('activity')) {
+                state.countries = state.allCountries.filter(country => country.activities.some(activity => activity.name === action.payload.slice(9).trim()))
             }
         },
         setOrder: (state, action) => {
@@ -69,9 +69,28 @@ const countriesSlice = createSlice({
                         }
                         return 0;
                     });
+                    state.allCountries.sort((a, b) => {
+                        if (a.name > b.name) {
+                            return 1;
+                        }
+                        if (a.name < b.name) {
+                            return -1;
+                        }
+                        return 0;
+                    });
+                    
                 }
                 else if (action.payload === "z-a") {
                     state.countries.sort((a, b) => {
+                        if (a.name < b.name) {
+                            return 1;
+                        }
+                        if (a.name > b.name) {
+                            return -1;
+                        }
+                        return 0;
+                    });
+                    state.allCountries.sort((a, b) => {
                         if (a.name < b.name) {
                             return 1;
                         }
@@ -91,9 +110,27 @@ const countriesSlice = createSlice({
                         }
                         return 0;
                     });
+                    state.allCountries.sort((a, b) => {
+                        if (a.population < b.population) {
+                            return 1;
+                        }
+                        if (a.population > b.population) {
+                            return -1;
+                        }
+                        return 0;
+                    });
                 }
                 else if (action.payload === "population: low-high") {
                     state.countries.sort((a, b) => {
+                        if (a.population > b.population) {
+                            return 1;
+                        }
+                        if (a.population < b.population) {
+                            return -1;
+                        }
+                        return 0;
+                    });
+                    state.allCountries.sort((a, b) => {
                         if (a.population > b.population) {
                             return 1;
                         }
@@ -130,14 +167,20 @@ const countriesSlice = createSlice({
             state.countries = action.payload;
             state.countries = state.allCountries.filter(country => country.name.toLowerCase().includes(action.payload.toLowerCase()));
         },
+        setActivitiesList: (state, action) => {
+            state.activities = action.payload;
+            state.allActivities = action.payload;
+
+        },
         postActivity: (state, action) => {
             state.activities.push(action.payload);
             state.allActivities.push(action.payload);
+            state.allCountries.find(country => country.id === action.payload.countries.includes(country.id)).activities.push(action.payload);
         }
     }
 });
 
-export const { setCountries, setFilter, setOrder, setCurrentPage, setCountriesPerPage, getCountriesByName, postActivity } = countriesSlice.actions;
+export const { setCountries, setFilter, setOrder, setCurrentPage, setCountriesPerPage, getCountriesByName, postActivity, setActivitiesList } = countriesSlice.actions;
 export default countriesSlice.reducer;
 
 

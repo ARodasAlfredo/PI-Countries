@@ -1,4 +1,55 @@
+form input{
+    background-color: transparent;
+    border: 2px solid #fffcf3;
+    border-radius: 7px;
+    height: 20px;
+    width: 250px;
+    color: #fffcf3;
+}
+
 form{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    color: #fffcf3;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 25%;
+    left: 40.75%;
+    gap: 20px;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form select{
+    border: 2px solid #fffcf3;
+    border-radius: 7px;
+    height: 25px;
+    width: 257px;
+}
+
+.create-btn-form{
+    background-color: #fffcf3;
+    border: none;
+    border-radius: 7px;
+    width: 150px;
+    height: 25px;
+    color: #242424;
+    font-family: 'Play', sans-serif;
+    position: relative;
+    top: 30px;
+}
+
+button:disabled{
+    cursor: not-allowed;
+}
+
+form .input-container label{
+    margin-bottom: 10px;
 }

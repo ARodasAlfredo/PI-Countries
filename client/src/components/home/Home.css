@@ -7,3 +7,41 @@
     position: relative;
     left: 80px;
 }
+
+.page-btn{
+    background-color: transparent;
+    border: 2px solid #fffcf3;
+    border-radius: 10px;
+    width: 30px;
+    color: #fffcf3;
+}
+
+.page-container{
+    display: flex;
+    color: #fffcf3;
+    height: 30px;
+    gap: 30px;
+    text-align: center;
+    flex-direction: row;
+    text-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Play', sans-serif;
+}
+
+select{
+    background-color: transparent;
+    font-family: 'Play', sans-serif;
+    border: 0px;
+    font-size: 15px;
+    color: #fffcf3;
+}
+
+.select-container{
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    position: relative;
+    top: 80px;
+    left: 340px;
+}

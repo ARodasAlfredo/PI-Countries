@@ -12,15 +12,17 @@
     font-family: 'Play', sans-serif;
     text-align: center;
     padding: 10px;
-}
-
-.card-container:hover{
-    height: 190px;
+    overflow: auto;
 }
 
 .card-img{
     width: 95px;
     height: 60px;
     border-radius: 10px;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
 }
 
+.card-img:hover{
+    transform: scale(1.1);
+}

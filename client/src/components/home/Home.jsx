@@ -14,13 +14,15 @@ const Home = () => {
     const handleFilter = ({target}) => {
         const {value} = target;
         dispatch(setFilter(value));
+        dispatch(setCurrentPage(1));
     };
     const handleOrder = ({target}) => {
         const {value} = target;
         dispatch(setOrder(value));
+        dispatch(setCurrentPage(1));
     }
     const handleCurrentPage = (page) => {
-            dispatch(setCurrentPage(page));
+        dispatch(setCurrentPage(page));
     }
 
     const startIndex = (currentPage - 1) * countriesPerPage;
@@ -29,8 +31,10 @@ const Home = () => {
     
     return (
         <div>
+            <div className="select-container">
             <select onChange={handleFilter} id="">
-                <option value="all">Filter by continent</option>
+                <option value="">Filter by continent</option>
+                <option value="all">All</option>
                 <option value="africa">Africa</option>
                 <option value="south america">South America</option>
                 <option value="north america">North America</option>
@@ -40,16 +44,18 @@ const Home = () => {
                 <option value="antarctica">Antarctica</option>
             </select>
             <select onChange={handleFilter} id="">
-                <option value="all">Filter by activity</option>
+                <option value="">Filter by activity</option>
+                <option value="all">All</option>
                 <option value="countries with activities">All countries with activities</option>
                 <option value="countries without activities">All countries without activities</option>
                 {activities.map((activity, index) => {
                     return (
-                        <option key={index} value={activity.name}>{activity.name}</option>
+                        <option key={index} value={`activity: ${activity.name}`}>{activity.name}</option>
                     )
                 })}
             </select>
             <select onChange={handleOrder} id="">
+                <option value="all">Order by</option>
                 <option value="a-z">a-z</option>
                 <option value="z-a">z-a</option>
                 <option value="population: high-low">population: high-low</option>
@@ -57,32 +63,25 @@ const Home = () => {
                 <option value="area: high-low">area: high-low</option>
                 <option value="area: low-high">area: low-high</option>
             </select>
-            <div>
-                <button
+            </div>
+            <div >
+                <div className="page-container">
+                <button className="page-btn"
                     onClick={() => handleCurrentPage(currentPage - 1)}
                     disabled={currentPage === 1}
                 >
                     {"<<"}
-                </button>
-                {
-                    Array.from({length: totalPages}, (_, index) => {
-                        const pageNumber = index + 1;
-                        return (
-                            <button
-                                key={index}
-                                onClick={() => handleCurrentPage(pageNumber)}
-                            >
-                                {pageNumber}
-                            </button>
-                        )
-                    })
-                }
-                 <button
+                </button> 
+                <div className="page-number">
+                    <p > {currentPage} of {totalPages} </p>
+                </div>
+                 <button className="page-btn"
                     onClick={() => handleCurrentPage(currentPage + 1)}
                     disabled={currentPage === totalPages}
                 >
                     {">>"}
                 </button>
+                </div>
                 <div className="cards-display">
                 {countries.slice(startIndex, endIndex).map((country, index) => {
                     return (
